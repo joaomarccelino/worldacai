@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "280000986589",
+    "project_id": "world-acai",
+    "storage_bucket": "world-acai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280000986589:android:f540fd03b4a868a15e4a34",
+        "android_client_info": {
+          "package_name": "com.worldacai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280000986589-qcaav9oc1u0guuvdijaeatmjlhs3jqln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKCGsCbQTYC19X4WxWL-JIh4HpnIyR4yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280000986589-qcaav9oc1u0guuvdijaeatmjlhs3jqln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
