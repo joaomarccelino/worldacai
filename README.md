@@ -1,5 +1,5 @@
-<h1 align="center">World Açai</h1>
-
+<img src="https://github.com/joaomarccelino/worldacai/blob/master/git-image/tela1.png"/>  
+<img src="https://github.com/joaomarccelino/worldacai/blob/master/git-image/tela2.png"/>  
 <p align="center">Aplicativo de entregas desenvolvido para a empresa World Açai</p>
 
 <h1> Principais funcionalidades: </h1>
