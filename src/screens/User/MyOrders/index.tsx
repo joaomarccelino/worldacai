@@ -74,7 +74,7 @@ export function MyOrders() {
                         order: value.order,
                         status: value.status,
                         totalValue: value.totalValue,
-                        payment: value.payment || {}
+                        payment: value.payment
                     }
                 })
                 setOrders(parsedData)
