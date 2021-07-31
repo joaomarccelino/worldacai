@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import { OrderAcaiCup } from "../../../components/OrderAcaiCup";
 import { styles } from "./styles";
 import { useRoute } from "@react-navigation/native";
-import { OrderProps } from "../../User/Order";
+import { OrderProps } from "../../../hooks/order";
 
 export type DetailProps = {
     id: string;

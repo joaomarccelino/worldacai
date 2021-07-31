@@ -1,21 +1,16 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
-    Alert,
     FlatList,
     Modal,
     Text,
     TouchableWithoutFeedback,
     View
 } from 'react-native';
-import { RectButton, TextInput } from 'react-native-gesture-handler';
-import { Load } from '../../../components/Load';
+
 import { OrderAcaiCup } from '../../../components/OrderAcaiCup';
-import { Select } from '../../../components/Select';
-import { COLLECTION_ORDERS } from '../../../configs/database';
-import data from '../../../data/data'
-import { OrderProps, PaymentProps } from '../Order';
+import { OrderProps } from '../../../hooks/order';
+
 import { styles } from './styles';
 
 type Props = {

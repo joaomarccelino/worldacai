@@ -8,25 +8,14 @@ import { Header } from "../../../components/Header";
 
 import { styles } from "./styles";
 import { useAuth } from "../../../hooks/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { COLLECTION_ADDRESS } from "../../../configs/database";
 
 export function Home() {
     const [showChangeAddress, setShowChangeAddress] = useState(false)
 
-    const navigation = useNavigation()
 
-    const { user, signOut, address,} = useAuth()
-
-    // useEffect(() => {
-    //     const userRef = database().ref(`/users/${user.id}/address`)
-    //     userRef
-    //         .on('value', snapshot => {
-    //             const data = snapshot.val()
-    //             setAddress(data.neighborhood + ', ' + data.street + ', ' + data.number)
-    //         });
-    //     return () => {
-    //         userRef.off('value')
-    //     }
-    // })
+    const { user } = useAuth()
 
     async function registerAddress(neigh: string, str: string, num: string) {
         const userRef = database().ref(`/users/${user.id}/address`)
@@ -36,6 +25,8 @@ export function Home() {
             street: str,
             number: num
         })
+
+        await AsyncStorage.setItem(COLLECTION_ADDRESS, neigh + ', ' + str + ', ' + num)
 
         setShowChangeAddress(false)
 

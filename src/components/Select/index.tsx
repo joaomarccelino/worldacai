@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react'
+import React from 'react'
 import { Dispatch } from 'react';
 
 import DropDownPicker, { ItemType, ValueType } from "react-native-dropdown-picker";

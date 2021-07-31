@@ -17,7 +17,7 @@ import { useEffect } from 'react';
 
 export function UserOrderDetails() {
     const route = useRoute()
-    const { name, address, order, status, payment } = route.params as DetailProps
+    const { order, status, payment } = route.params as DetailProps
 
     const [iconName, setIconName] = useState('')
 

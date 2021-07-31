@@ -7,49 +7,9 @@ import { FlatList } from "react-native-gesture-handler";
 import { AdminOrder } from "../../../components/AdminOrder";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
+import { FirebaseOrders, OrderType } from "../../../hooks/order";
 
-type FirebaseOrders = Record<string, {
-    name: string;
-    userId: string;
-    address: string;
-    order: {
-        size: string;
-        syrup: string;
-        fruit: string;
-        free: string[];
-        paid: string[];
-        value: string;
-        acaiAmount: number;
-    };
-    status: string;
-    totalValue: string;
-    payment: {
-        payment: string;
-        change?: string
-    }
-}>
 
-export type OrderType = {
-    id: string;
-    name: string;
-    userId: string
-    address: string;
-    order: {
-        size: string;
-        syrup: string;
-        fruit: string;
-        free: string[];
-        paid: string[];
-        value: string;
-        acaiAmount: number;
-    },
-    status: string;
-    totalValue: string;
-    payment: {
-        payment: string;
-        change?: string
-    }
-}
 export function AdminOrders() {
 
     const navigation = useNavigation()

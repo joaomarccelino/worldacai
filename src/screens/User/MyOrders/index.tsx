@@ -8,50 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { UserOrder } from "../../../components/UserOrder";
 import { styles } from "./styles";
 import { useAuth } from "../../../hooks/auth";
-
-type FirebaseOrders = Record<string, {
-    name: string;
-    userId: string;
-    address: string;
-    order: {
-        size: string;
-        syrup: string;
-        fruit: string;
-        free: string[];
-        paid: string[];
-        value: string;
-        acaiAmount: number;
-    };
-    status: string;
-    totalValue: string;
-    payment: {
-        payment: string;
-        change?: string
-    }
-}>
-
-export type OrderType = {
-    id: string;
-    name: string;
-    userId: string
-    address: string;
-    order: {
-        size: string;
-        syrup: string;
-        fruit: string;
-        free: string[];
-        paid: string[];
-        value: string;
-        acaiAmount: number;
-    },
-    status: string;
-    totalValue: string;
-    payment: {
-        payment: string;
-        change?: string
-    }
-}
-
+import { FirebaseOrders, OrderType } from "../../../hooks/order";
 
 export function MyOrders() {
 

@@ -1,8 +1,6 @@
 import React, { ReactNode, useContext, createContext, useState } from 'react'
 
-
-
-export type Order = {
+export type OrderProps = {
     id: string;
     size: string;
     syrup: string;
@@ -11,11 +9,52 @@ export type Order = {
     paid: string[];
     value: string;
     acaiAmount: number;
-    status?: string;
+}
+
+export type PaymentProps = {
+    payment: string;
+    change?: string;
+}
+
+export type FirebaseOrders = Record<string, {
+    name: string;
+    userId: string;
+    address: string;
+    order: {
+        size: string;
+        syrup: string;
+        fruit: string;
+        free: string[];
+        paid: string[];
+        value: string;
+        acaiAmount: number;
+    };
+    status: string;
+    totalValue: string;
+    payment: PaymentProps;
+}>
+
+export type OrderType = {
+    id: string;
+    name: string;
+    userId: string
+    address: string;
+    order: {
+        size: string;
+        syrup: string;
+        fruit: string;
+        free: string[];
+        paid: string[];
+        value: string;
+        acaiAmount: number;
+    },
+    status: string;
+    totalValue: string;
+    payment: PaymentProps;
 }
 
 type OrderContextData = {
-    order: Order[];
+    order: OrderProps[];
     address: string;
     name: string;
     status: string;
@@ -31,7 +70,7 @@ function OrderProvider({children}: OrderProviderProps) {
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
     const [status, setStatus] = useState('')
-    const [order, setOrder] = useState<Order[]>({} as Order[])
+    const [order, setOrder] = useState<OrderProps[]>({} as OrderProps[])
 
     return (
         <OrderContext.Provider value={{

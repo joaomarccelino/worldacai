@@ -1,10 +1,10 @@
 import React, { ReactNode, useState, useContext, createContext, useEffect } from 'react'
 
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth'
 import database from '@react-native-firebase/database'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { COLLECTION_USERS } from '../configs/database'
+import { COLLECTION_ADDRESS, COLLECTION_USERS } from '../configs/database'
 
 
 type User = {
@@ -62,6 +62,7 @@ function AuthProvider({ children }: AuthProviderProps) {
                         type: data.type || 'user'
                     }
                     setUser(newUser)
+                    AsyncStorage.setItem(COLLECTION_ADDRESS, address)
                     AsyncStorage.setItem(COLLECTION_USERS, JSON.stringify(newUser))
                 })
         })
@@ -71,8 +72,9 @@ function AuthProvider({ children }: AuthProviderProps) {
         try {
             await GoogleSignin.revokeAccess();
             await GoogleSignin.signOut();
-            await AsyncStorage.removeItem(COLLECTION_USERS)
+            await AsyncStorage.clear()
             setUser({} as User)
+            setAddress('')
             setAdmin('')
         } catch (error) {
             console.error(error);
@@ -86,6 +88,10 @@ function AuthProvider({ children }: AuthProviderProps) {
         if (storage) {
             const userLogged = JSON.parse(storage) as User
             setUser(userLogged)
+        }
+        const userAddress = await AsyncStorage.getItem(COLLECTION_ADDRESS)
+        if (userAddress) {
+            setAddress(userAddress)
         }
     }
 

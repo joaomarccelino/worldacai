@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { Select } from '../../../components/Select';
 import data from '../../../data/data'
-import { PaymentProps } from '../Order';
+import { PaymentProps } from '../../../hooks/order';
 import { styles } from './styles';
 
 type Props = {
