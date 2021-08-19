@@ -27,7 +27,7 @@ export function Auth() {
             <TouchableOpacity onPress={() => googleLogin()}>
                 <View style={styles.loginButton}>
                     <Text style={styles.loginText}>
-                        entre com google
+                        Entre com sua conta google
                     </Text>
                     <Icon name="google" color={'red'} size={35} />
                 </View>

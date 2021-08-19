@@ -17,7 +17,7 @@ type HeaderProps = {
 
 export function Header({ handleAddress }: HeaderProps) {
 
-    const { user, signOut, address } = useAuth()
+    const { user, signOut} = useAuth()
 
     return (
         <View style={styles.header}>
@@ -30,7 +30,7 @@ export function Header({ handleAddress }: HeaderProps) {
                 </View>
                 <View style={styles.nameAddress}>
                     <Text style={styles.name}>{user.name}</Text>
-                    {address === '' ?
+                    {user.address === '' ?
                         <>
                             <View style={styles.buttonArea}>
                                 <TouchableOpacity onPress={handleAddress}>
@@ -47,7 +47,7 @@ export function Header({ handleAddress }: HeaderProps) {
                         </>
                         :
                         <>
-                            <Text numberOfLines={3} style={styles.address}>{address}</Text>
+                            <Text numberOfLines={3} style={styles.address}>{user.address}</Text>
                             <View style={styles.buttonArea}>
                                 <TouchableOpacity onPress={handleAddress}>
                                     <View style={styles.addressButton}>

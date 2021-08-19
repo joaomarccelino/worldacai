@@ -14,10 +14,12 @@ export const styles = StyleSheet.create({
     },
     loginButton: {
         backgroundColor: theme.colors.background,
+        width: 320,
         padding: 15,
-        borderRadius: 10,
+        borderRadius: 8,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     loginText: {
         fontFamily: theme.fontFamily.bold,

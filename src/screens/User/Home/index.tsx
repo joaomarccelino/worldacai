@@ -14,7 +14,6 @@ import { COLLECTION_ADDRESS } from "../../../configs/database";
 export function Home() {
     const [showChangeAddress, setShowChangeAddress] = useState(false)
 
-
     const { user } = useAuth()
 
     async function registerAddress(neigh: string, str: string, num: string) {

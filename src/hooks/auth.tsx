@@ -12,6 +12,7 @@ type User = {
     name: string | null;
     photo: string | null;
     type: string;
+    address: string;
 }
 
 type UserData = {
@@ -25,7 +26,6 @@ type UserData = {
 
 type AuthContextData = {
     user: User;
-    address: string;
     type?: string;
     googleLogin: () => Promise<void>;
     signOut: () => Promise<void>;
@@ -59,10 +59,10 @@ function AuthProvider({ children }: AuthProviderProps) {
                         id: value.user.uid,
                         name: value.user.displayName,
                         photo: value.additionalUserInfo?.profile?.picture,
-                        type: data.type || 'user'
+                        address: data.address.neighborhood + ', ' + data.address.street + ', ' + data.address.number,
+                        type: data.type || 'user',
                     }
                     setUser(newUser)
-                    AsyncStorage.setItem(COLLECTION_ADDRESS, address)
                     AsyncStorage.setItem(COLLECTION_USERS, JSON.stringify(newUser))
                 })
         })
@@ -74,7 +74,6 @@ function AuthProvider({ children }: AuthProviderProps) {
             await GoogleSignin.signOut();
             await AsyncStorage.clear()
             setUser({} as User)
-            setAddress('')
             setAdmin('')
         } catch (error) {
             console.error(error);
@@ -89,10 +88,6 @@ function AuthProvider({ children }: AuthProviderProps) {
             const userLogged = JSON.parse(storage) as User
             setUser(userLogged)
         }
-        const userAddress = await AsyncStorage.getItem(COLLECTION_ADDRESS)
-        if (userAddress) {
-            setAddress(userAddress)
-        }
     }
 
     useEffect(() => {
@@ -102,7 +97,6 @@ function AuthProvider({ children }: AuthProviderProps) {
     return (
         <AuthContext.Provider value={{
             user,
-            address,
             googleLogin,
             signOut
         }}>
